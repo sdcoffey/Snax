@@ -13,6 +13,7 @@
 		B6A5F7461BAC93A900E25232 /* Snax.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A5F7451BAC93A900E25232 /* Snax.swift */; settings = {ASSET_TAGS = (); }; };
 		B6A5F7481BACA0FE00E25232 /* SnaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A5F7471BACA0FE00E25232 /* SnaxView.swift */; settings = {ASSET_TAGS = (); }; };
 		B6A5F74B1BACA7BF00E25232 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A5F74A1BACA7BF00E25232 /* Font.swift */; settings = {ASSET_TAGS = (); }; };
+		B6A5F7911BAD287100E25232 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A5F7901BAD287100E25232 /* Device.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		B6A5F7451BAC93A900E25232 /* Snax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snax.swift; sourceTree = "<group>"; };
 		B6A5F7471BACA0FE00E25232 /* SnaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnaxView.swift; sourceTree = "<group>"; };
 		B6A5F74A1BACA7BF00E25232 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Font.swift; path = Extensions/Font.swift; sourceTree = "<group>"; };
+		B6A5F7901BAD287100E25232 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Extensions/Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A5F74A1BACA7BF00E25232 /* Font.swift */,
+				B6A5F7901BAD287100E25232 /* Device.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				B6A5F7481BACA0FE00E25232 /* SnaxView.swift in Sources */,
 				B6A5F7461BAC93A900E25232 /* Snax.swift in Sources */,
 				B6A5F74B1BACA7BF00E25232 /* Font.swift in Sources */,
+				B6A5F7911BAD287100E25232 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

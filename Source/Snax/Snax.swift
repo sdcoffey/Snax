@@ -8,15 +8,36 @@
 
 import UIKit
 
-enum SnaxType {
+public enum SnaxType {
     case Full
     case Beveled
     case Partial
 }
 
+public class SnaxMix {
+    var message: String = ""
+    var type: SnaxType = UIDevice.defaultSnaxTypeForDevice()
+    var duration: NSTimeInterval = kSnaxDurationDefault
+    
+    init(message: String) {
+        self.message = message
+    }
+    
+    public func setType(type: SnaxType) -> SnaxMix {
+        self.type = type
+        return self
+    }
+    
+    public func setDuration(duration: NSTimeInterval) -> SnaxMix {
+        self.duration = duration
+        return self
+    }
+}
+
+let kSnaxDurationDefault = NSTimeInterval(2.5)
 public class Snax: NSObject {
     
-    private static var snaxQueue: [SnaxView] = []
+    private static var snaxQueue: [SnaxMix] = []
     
     /**
     Shows a basic snax with the provided message
@@ -24,51 +45,36 @@ public class Snax: NSObject {
     - parameter message: The message for the snax
     */
     public class func show(message: String) {
-        let newSnax = SnaxView(message: message, type: defaultSnaxTypeForDevice())
-        queueSnax(newSnax)
+        let options = SnaxMix(message: message)
+        queueSnax(options)
     }
     
-    private class func queueSnax(snax: SnaxView) {
+    public class func show(mix: SnaxMix) {
+        queueSnax(mix)
+    }
+    
+    private class func queueSnax(snax: SnaxMix) {
         if snaxQueue.count == 0 {
             showSnaxInternal(snax)
         }
         snaxQueue.append(snax)
     }
     
-    private class func showSnaxInternal(snax: SnaxView) {
+    private class func showSnaxInternal(mix: SnaxMix) {
+        let snax = SnaxView(mix: mix)
         snax.show()
-        let _ = NSTimer.scheduledTimerWithTimeInterval(2.5, target: Snax.self, selector: "onTimerFire:", userInfo: snax, repeats: false)
-    }
-    
-    class func onTimerFire(timer: NSTimer) {
-        let currentSnax = timer.userInfo as? SnaxView
-        if let snax = currentSnax {
+        
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(mix.duration * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue()) { () -> Void in
             snax.hide {
-                snaxQueue.removeFirst()
-                if snaxQueue.count > 0 {
-                    showSnaxInternal(snaxQueue[0])
-                }
+                let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                dispatch_after(dispatchTime, dispatch_get_main_queue(), { () -> Void in
+                    snaxQueue.removeFirst()
+                    if snaxQueue.count > 0 {
+                        showSnaxInternal(snaxQueue[0])
+                    }
+                })
             }
         }
-        timer.invalidate()
-    }
-    
-    class func defaultSnaxTypeForDevice() -> SnaxType {
-        var type: SnaxType
-        switch UIDevice.currentDevice().userInterfaceIdiom {
-        case .Pad:
-            type = SnaxType.Partial
-        case .Phone:
-            type = SnaxType.Full
-        default:
-            type = SnaxType.Full
-        }
-        
-        if UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight ||
-            UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight {
-                type = SnaxType.Partial
-        }
-        
-        return type
     }
 }

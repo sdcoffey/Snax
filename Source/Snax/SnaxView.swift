@@ -17,19 +17,15 @@ public class SnaxView: UIView {
     private var type: SnaxType!
     
     /**
-    Constructs a new SnaxView with some basic params
+    Constructs a new SnaxView from options
     
-    - parameter type:    the type of SnaxView to show (Partial, Beveled, Full)
-    - parameter message: The string that the Snax should show
-    - @@TODO: Action
-    
-    - returns: a constructed SnaxView
+    - parameter options: the flavors and notes that will pervade this snax
     */
-    convenience init(message: String, type: SnaxType) {
-        self.init(frame:SnaxView.frameForSnaxType(type))
+    convenience init(mix: SnaxMix) {
+        self.init(frame:SnaxView.frameForSnaxType(mix.type))
         
-        self.message = message
-        self.type = type
+        self.message = mix.message
+        self.type = mix.type
         self.backgroundColor = UIColor.clearColor()
     }
     
