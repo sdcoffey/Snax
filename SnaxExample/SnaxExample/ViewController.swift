@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showSnaxPressed(sender: AnyObject) {
-        Snax.show("Hello! I am the Snax")
+        Snax.show("Hello! I am the Snax.")
     }
 }
 

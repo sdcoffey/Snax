@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SnaxView: UIView {
+public class SnaxView: UIView {
     
     private static let kStaticHeight: CGFloat = 50 // @@TODO <- This is arbitrary
     private static let kBevelPadding: CGFloat = 8
@@ -25,13 +25,12 @@ class SnaxView: UIView {
     
     - returns: a constructed SnaxView
     */
-    class func SnaxViewWithType(type: SnaxType, message: String) -> SnaxView {
-        let view = SnaxView(frame: SnaxView.frameForSnaxType(type))
-        view.message = message
-        view.type = type
-        view.backgroundColor = UIColor.clearColor()
+    convenience init(message: String, type: SnaxType) {
+        self.init(frame:SnaxView.frameForSnaxType(type))
         
-        return view
+        self.message = message
+        self.type = type
+        self.backgroundColor = UIColor.clearColor()
     }
     
     private class func frameForSnaxType(type: SnaxType) -> CGRect {
@@ -50,7 +49,7 @@ class SnaxView: UIView {
     /**
     Presents the SnaxView
     */
-    func show() {
+    public func show() {
         guard let parentView = UIApplication.sharedApplication().keyWindow else {
             return
         }
@@ -65,7 +64,8 @@ class SnaxView: UIView {
             }, completion: nil)
     }
     
-    func hide() {
+    typealias VoidBlock = () -> Void
+    func hide(completion: VoidBlock?) {
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             
             self.alpha = 0
@@ -73,10 +73,13 @@ class SnaxView: UIView {
             
             }) { (_) -> Void in
                 self.removeFromSuperview()
+                if let completionBlock = completion {
+                    completionBlock()
+                }
         }
     }
     
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         let tP = CGFloat(10)
         
         let typeFace = UIFont.systemFontOfSize(12)
