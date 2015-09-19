@@ -78,7 +78,7 @@ public class SnaxView: UIView {
     override public func drawRect(rect: CGRect) {
         let tP = CGFloat(10)
         
-        let typeFace = UIFont.systemFontOfSize(12)
+        let typeFace = UIFont.boldSystemFontOfSize(12)
         let textSize = typeFace.sizeForString(self.message)
         
         let y = (rect.height / 2) - (textSize.height / 2) - ((self.type == SnaxType.Full ? 0 : SnaxView.kBevelPadding * 3) / 2)
