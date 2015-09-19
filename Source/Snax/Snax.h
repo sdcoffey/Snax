@@ -15,6 +15,4 @@ FOUNDATION_EXPORT double SnaxVersionNumber;
 FOUNDATION_EXPORT const unsigned char SnaxVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Snax/PublicHeader.h>
-#import "Snax-Swift.h"
-
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqZ-3a-7ja">
-                                <rect key="frame" x="237" y="78" width="127" height="30"/>
+                                <rect key="frame" x="237" y="427" width="127" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="glX-vC-le3"/>
                                     <constraint firstAttribute="height" constant="30" id="znB-Ze-bPa"/>
@@ -27,13 +28,57 @@
                                     <action selector="showSnaxPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rB8-nN-fWF"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="i0A-89-VXW">
+                                <rect key="frame" x="43" y="285" width="471" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="c4n-yW-xVY"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXv-3X-dXH">
+                                <rect key="frame" x="537" y="289" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xIu-Mk-D8s">
+                                <rect key="frame" x="164" y="224" width="272" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="bD6-un-vga"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Full"/>
+                                    <segment title="Beveled"/>
+                                    <segment title="Partial"/>
+                                    <segment title="Auto"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Snax here" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Y2T-ah-xka">
+                                <rect key="frame" x="164" y="161" width="272" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="F6P-tY-Xcf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Svi-EM-sEI"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xXv-3X-dXH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4ez-fd-I7Y"/>
                             <constraint firstItem="wqZ-3a-7ja" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5IR-6w-1aU"/>
+                            <constraint firstItem="i0A-89-VXW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="606-wF-7T5"/>
+                            <constraint firstItem="i0A-89-VXW" firstAttribute="top" secondItem="xIu-Mk-D8s" secondAttribute="bottom" constant="33" id="6cQ-rD-8Pr"/>
+                            <constraint firstItem="xXv-3X-dXH" firstAttribute="leading" secondItem="i0A-89-VXW" secondAttribute="trailing" constant="25" id="A07-Mg-yNT"/>
+                            <constraint firstItem="xXv-3X-dXH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-19" id="AVL-W7-ENI"/>
+                            <constraint firstItem="xIu-Mk-D8s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FOb-O2-gWT"/>
+                            <constraint firstItem="Y2T-ah-xka" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KVB-hE-EbZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wqZ-3a-7ja" secondAttribute="bottom" constant="143" id="OYj-Of-vYv"/>
                             <constraint firstItem="wqZ-3a-7ja" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y3M-AK-nq3"/>
-                            <constraint firstItem="wqZ-3a-7ja" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="hFu-Rc-xe3"/>
+                            <constraint firstItem="i0A-89-VXW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gvS-Au-Qqt"/>
                             <constraint firstItem="wqZ-3a-7ja" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jQt-Vc-rpf"/>
+                            <constraint firstItem="xIu-Mk-D8s" firstAttribute="top" secondItem="Y2T-ah-xka" secondAttribute="bottom" constant="33" id="qpw-bd-kl4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -42,9 +87,16 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="durationLabel" destination="xXv-3X-dXH" id="cdg-Ol-9wX"/>
+                        <outlet property="durationSlider" destination="i0A-89-VXW" id="Xi4-al-hWm"/>
+                        <outlet property="segmentControl" destination="xIu-Mk-D8s" id="2eZ-EG-1Gm"/>
+                        <outlet property="snaxTextField" destination="Y2T-ah-xka" id="mYh-3Q-uZ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1020" y="456"/>
         </scene>
     </scenes>
 </document>

@@ -12,8 +12,22 @@
 		B6A5F7821BACB66100E25232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A5F7801BACB66100E25232 /* Main.storyboard */; };
 		B6A5F7841BACB66100E25232 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A5F7831BACB66100E25232 /* Assets.xcassets */; };
 		B6A5F7871BACB66100E25232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A5F7851BACB66100E25232 /* LaunchScreen.storyboard */; };
-		B6A5F78F1BACB80500E25232 /* Snax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A5F78E1BACB80500E25232 /* Snax.framework */; };
+		B6A5F79D1BAD3A2400E25232 /* Snax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A5F79C1BAD3A2400E25232 /* Snax.framework */; };
+		B6A5F79E1BAD3A2A00E25232 /* Snax.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B6A5F79C1BAD3A2400E25232 /* Snax.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B6A5F79A1BAD39F100E25232 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B6A5F79E1BAD3A2A00E25232 /* Snax.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B6A5F7791BACB66100E25232 /* SnaxExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnaxExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,7 +37,7 @@
 		B6A5F7831BACB66100E25232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6A5F7861BACB66100E25232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6A5F7881BACB66100E25232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6A5F78E1BACB80500E25232 /* Snax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Snax.framework; path = "../Source/build/Debug-iphoneos/Snax.framework"; sourceTree = "<group>"; };
+		B6A5F79C1BAD3A2400E25232 /* Snax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Snax.framework; path = "../../../Library/Developer/Xcode/DerivedData/Snax-hhacjandriyglvcplgttfockwxjw/Build/Products/Debug-iphoneos/Snax.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A5F78F1BACB80500E25232 /* Snax.framework in Frameworks */,
+				B6A5F79D1BAD3A2400E25232 /* Snax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +55,7 @@
 		B6A5F7701BACB66100E25232 = {
 			isa = PBXGroup;
 			children = (
-				B6A5F78E1BACB80500E25232 /* Snax.framework */,
+				B6A5F79C1BAD3A2400E25232 /* Snax.framework */,
 				B6A5F77B1BACB66100E25232 /* SnaxExample */,
 				B6A5F77A1BACB66100E25232 /* Products */,
 			);
@@ -78,6 +92,7 @@
 				B6A5F7751BACB66100E25232 /* Sources */,
 				B6A5F7761BACB66100E25232 /* Frameworks */,
 				B6A5F7771BACB66100E25232 /* Resources */,
+				B6A5F79A1BAD39F100E25232 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -250,6 +265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = SnaxExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintree.SnaxExample;
@@ -262,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = SnaxExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintree.SnaxExample;

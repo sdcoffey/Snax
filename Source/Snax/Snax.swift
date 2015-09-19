@@ -19,7 +19,7 @@ public class SnaxMix {
     var type: SnaxType = UIDevice.defaultSnaxTypeForDevice()
     var duration: NSTimeInterval = kSnaxDurationDefault
     
-    init(message: String) {
+    public init(message: String) {
         self.message = message
     }
     
@@ -49,6 +49,11 @@ public class Snax: NSObject {
         queueSnax(options)
     }
     
+    /**
+    More advanced implemenations that allows for greater customization
+    
+    - parameter mix: A SnaxMix that describes this Snax
+    */
     public class func show(mix: SnaxMix) {
         queueSnax(mix)
     }
